@@ -12,13 +12,6 @@ p {
 	font-size: 200%;
 	color: #ffffff;
 }
-/*body {
-	background-image: url("background.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	background-size: 100%
-}*/
 .typewriter h1 {
   overflow: hidden;
   border-right: .15em solid orange;
