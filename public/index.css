@@ -1,4 +1,81 @@
 pre {
-	background: #ffffff;
-	border: none
+	background: transparent;
+	border: none;
+	color: #ffffff;
+	font-weight: 900;
+}
+h1 {
+	font-size: 400%;
+	color: #ffffff;
+}
+p {
+	font-size: 200%;
+	color: #ffffff;
+}
+/*body {
+	background-image: url("background.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: 100%
+}*/
+.typewriter h1 {
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto; 
+  letter-spacing: .15em;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+.typewriter p {
+  overflow: hidden;
+  /*border-right: .15em solid orange;*/
+  white-space: nowrap;
+  margin: 0 auto; 
+  letter-spacing: .15em;
+  animation: 
+    typing 3.5s steps(40, end)
+    /*blink-caret .75s step-end infinite;*/
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
+@-webkit-keyframes fadeIt {
+  0%   { background-color: #FFFFFF; }
+  50%  { background-color: #000000; }
+  100% { background-image: url("background.jpg"); }
+}
+@-moz-keyframes fadeIt {
+  0%   { background-color: #FFFFFF; }
+  50%  { background-color: #000000; }
+  100% { background-image: url("background.jpg"); }
+}
+@-o-keyframes fadeIt {
+  0%   { background-color: #FFFFFF; }
+  50%  { background-color: #000000; }
+  100% { background-image: url("background.jpg"); }
+}
+@keyframes fadeIt {
+  0%   { background-color: #FFFFFF; }
+  50%  { background-color: #000000; }
+  100% { background-image: url("background.jpg"); }
+}
+
+.backgroundAnimated{    
+    /*background-image:none !important;*/
+    -webkit-animation: fadeIt 20s ease-in-out; 
+       -moz-animation: fadeIt 20s ease-in-out; 
+         -o-animation: fadeIt 20s ease-in-out; 
+            animation: fadeIt 20s ease-in-out; 
+			animation-fill-mode: forwards;
 }

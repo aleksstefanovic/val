@@ -10,7 +10,7 @@
   <script type="text/javascript" src="figlet.js"></script>
 	<script>
  		figlet.defaults({fontPath: "fonts"});
-		figlet.preloadFonts(["Standard", "Ghost"], ready);
+		figlet.preloadFonts(["Standard", "Slant","Script","Wavy","Puffy", "Gothic" ,"Fun Faces", "Alphabet", "Dancing Font"], ready);
 		function ready() {
 			console.log("Fonts ready!");
 		}
@@ -19,17 +19,44 @@
 <body>
 	<script>
 		function setName () {
-				document.getElementById("title").innerHTML = "Happy Valentine's Day!";
-				document.getElementById("name").innerHTML = figlet.textSync(document.getElementById("enterName").value);
-				console.log(figlet.textSync(document.getElementById("enterName").value));
+				var fonts = ["Standard", "Slant", "Script", "Wavy","Puffy", "Gothic", "Fun Faces", "Alphabet","Dancing Font"];
 				document.getElementById("submit").style.display = 'none';
 				document.getElementById("enterName").style.display = 'none';
+				document.getElementById("mainText").className = "typewriter";
+				document.getElementById("words").className = "typewriter";
+				document.getElementById("title").innerHTML = "Happy Valentine's Day";
+				document.getElementById("line1").innerHTML = "words words words";
+				document.getElementById("line2").innerHTML = "words words words";
+				document.getElementById("line3").innerHTML = "words words words";
+				document.getElementById("line4").innerHTML = "words words words";
+				document.body.style.backgroundRepeat = "no-repeat";
+				document.body.style.backgroundPosition = "center";
+				document.body.style.backgroundAttachment = "fixed";
+				document.body.style.backgroundSize = "100%";
+				document.body.className = "backgroundAnimated";
+				
+				var name =  document.getElementById("enterName").value + " !";
+				var asciiName = figlet.textSync(name, "Standard");
+				console.log(asciiName);
+				document.getElementById("name").innerHTML = asciiName;
+				var index = 0;
+				window.setInterval(function () {
+					//console.log("testing...");
+					//var index = Math.floor((Math.random() * fonts.length));
+					if (index == fonts.length) {
+						index = 0;
+					}
+					if (index == 1) {
+						document.getElementById("mainText").style.background = "black";
+					}
+					var font = fonts[index];
+					index++;
+					asciiName = figlet.textSync(name, font);
+					console.log(index + ":" + font + ":" + asciiName);
+					document.getElementById("name").innerHTML = asciiName;
+				}, 5000);
 		}
 	</script>
-<div style="margin:100px">
-	<h1 id="title"></h1>
-	<pre id="name"></pre>
-</div>
   <div style="margin:100px;">
 	<form style="padding:40px" class="get-name">
 		<input id="enterName" type="text" name="name" class="form-control" placeholder="Enter your name">
@@ -37,5 +64,15 @@
 		<button id="submit" class="btn btn-default btn-lg" onclick="setName()" type="button">Submit</button>
 	</form>
   </div>
+<div id="words" style="margin:50px">
+	<p id="line1"></p>
+	<p id="line2"></p>
+	<p id="line3"></p>
+	<p id="line4"></p>
+</div>
+<div id="mainText" style="margin:250px">
+	<h1 id="title"></h1>
+	<pre id="name"></pre>
+</div>
 </body>
 </html>
