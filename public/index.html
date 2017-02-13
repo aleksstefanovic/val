@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>Magic</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fetch/1.0.0/fetch.min.js"></script>
+  <script type="text/javascript" src="figlet.js"></script>
+	<script>
+ 		figlet.defaults({fontPath: "fonts"});
+		figlet.preloadFonts(["Standard", "Slant","Script","Wavy","Puffy", "Gothic" ,"Fun Faces", "Alphabet", "Dancing Font"], ready);
+		function ready() {
+			console.log("Fonts ready!");
+		}
+	</script>
+</head>
+<body>
+	<script>
+		function setName () {
+				var fonts = ["Standard", "Slant", "Script", "Wavy","Puffy", "Gothic", "Fun Faces", "Alphabet","Dancing Font"];
+				document.getElementById("submit").style.display = 'none';
+				document.getElementById("enterName").style.display = 'none';
+				document.getElementById("mainText").className = "typewriter";
+				document.getElementById("words").className = "typewriter";
+				document.getElementById("title").innerHTML = "Have a very happy Valentine's Day";
+				document.getElementById("line1").innerHTML = "A luminous day of coloured hue,";
+				document.getElementById("line2").innerHTML = "A verb to do as most may,";
+				document.getElementById("line3").innerHTML = "Should it be painted red or new?";
+				document.getElementById("line4").innerHTML = "Tis true, I do, as the lovebirds say,";
+				document.body.style.backgroundRepeat = "no-repeat";
+				document.body.style.backgroundPosition = "center";
+				document.body.style.backgroundAttachment = "fixed";
+				document.body.style.backgroundSize = "100%";
+				document.body.className = "backgroundAnimated";
+				
+				var name =  document.getElementById("enterName").value + " !";
+				var asciiName = figlet.textSync(name, "Standard");
+				console.log(asciiName);
+				document.getElementById("name").innerHTML = asciiName;
+				var index = 0;
+				window.setInterval(function () {
+					//console.log("testing...");
+					//var index = Math.floor((Math.random() * fonts.length));
+					if (index == fonts.length) {
+						index = 0;
+					}
+					if (index == 1) {
+						document.getElementById("mainText").style.background = "black";
+					}
+					var font = fonts[index];
+					index++;
+					asciiName = figlet.textSync(name, font);
+					console.log(index + ":" + font + ":" + asciiName);
+					document.getElementById("name").innerHTML = asciiName;
+				}, 5000);
+		}
+	</script>
+  <div style="margin:100px;">
+	<form style="padding:40px" class="get-name">
+		<input id="enterName" type="text" name="name" class="form-control" placeholder="Enter your name">
+		<br>
+		<button id="submit" class="btn btn-default btn-lg" onclick="setName()" type="button">Submit</button>
+	</form>
+  </div>
+<div id="words" style="margin:50px">
+	<p id="line1"></p>
+	<p id="line2"></p>
+	<p id="line3"></p>
+	<p id="line4"></p>
+</div>
+<div id="mainText" style="margin:250px">
+	<h1 id="title"></h1>
+	<pre id="name"></pre>
+</div>
+</body>
+</html>
